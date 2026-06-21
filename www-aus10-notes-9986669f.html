@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>澳洲幸运10 · 简明指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #faf7f2;
+            color: #1e1e1e;
+            line-height: 1.7;
+            padding: 0 1.5rem;
+        }
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 0 4rem;
+        }
+
+        /* 顶部导航 */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0 0.8rem;
+            border-bottom: 1px solid #dcd6ce;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .nav-site {
+            font-weight: 500;
+            font-size: 1.2rem;
+            letter-spacing: 0.3px;
+            color: #3b3a36;
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            list-style: none;
+            font-size: 0.95rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #5c554b;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #a67c52;
+        }
+
+        /* hero */
+        .hero {
+            margin-bottom: 2.8rem;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+            color: #2d2a24;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: #4f4a42;
+            max-width: 70ch;
+        }
+
+        /* 核心介绍区 */
+        .intro-card {
+            background: #ffffffec;
+            padding: 2rem 2.2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            margin-bottom: 2.8rem;
+            border: 1px solid #e7e0d6;
+        }
+        .intro-card p {
+            margin-bottom: 1.2rem;
+        }
+        .intro-card p:last-child {
+            margin-bottom: 0;
+        }
+        .highlight-link {
+            background: #f3ede6;
+            padding: 0.15rem 0.3rem;
+            border-radius: 4px;
+        }
+
+        /* 三个场景模块 */
+        .scenes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 3.5rem;
+        }
+        .scene-item {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.8rem 1.5rem 1.8rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            border: 1px solid #ece5db;
+            transition: box-shadow 0.2s;
+        }
+        .scene-item:hover {
+            box-shadow: 0 6px 14px rgba(0,0,0,0.04);
+        }
+        .scene-item h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #2d2a24;
+            margin-bottom: 0.8rem;
+            border-left: 3px solid #b89a7a;
+            padding-left: 0.7rem;
+        }
+        .scene-item p {
+            font-size: 0.95rem;
+            color: #555048;
+        }
+
+        /* 常见说明 / 引用块 */
+        .faq-block {
+            background: #f2ede6;
+            border-left: 6px solid #b89a7a;
+            padding: 1.5rem 2rem;
+            border-radius: 0 16px 16px 0;
+            margin-bottom: 3rem;
+        }
+        .faq-block h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #2d2a24;
+        }
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #3b352e;
+            margin-bottom: 0.25rem;
+        }
+        .faq-item p {
+            color: #4f4a42;
+            font-size: 0.95rem;
+        }
+        .faq-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .note-box {
+            background: #fffbf7;
+            border: 1px dashed #cbbca8;
+            padding: 1.2rem 1.8rem;
+            border-radius: 14px;
+            margin-bottom: 2.2rem;
+            font-size: 0.95rem;
+            color: #4f4a42;
+        }
+        .note-box span {
+            font-weight: 500;
+            color: #2d2a24;
+        }
+
+        /* 页脚 */
+        .footer {
+            border-top: 1px solid #ddd6cc;
+            padding-top: 1.8rem;
+            margin-top: 1.8rem;
+            font-size: 0.9rem;
+            color: #7a7166;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 0.5rem;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 600px) {
+            body {
+                padding: 0 1rem;
+            }
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .intro-card {
+                padding: 1.5rem;
+            }
+            .nav-links {
+                gap: 1.2rem;
+                font-size: 0.9rem;
+            }
+            .scenes-grid {
+                grid-template-columns: 1fr;
+            }
+            .faq-block {
+                padding: 1.2rem 1.3rem;
+            }
+        }
+        @media (max-width: 420px) {
+            .nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- 顶部导航 -->
+    <nav class="nav">
+        <span class="nav-site">澳十指南</span>
+        <ul class="nav-links">
+            <li><a href="#intro">概览</a></li>
+            <li><a href="#scenes">场景</a></li>
+            <li><a href="#faq">说明</a></li>
+        </ul>
+    </nav>
+
+    <!-- hero -->
+    <div class="hero">
+        <h1>澳洲幸运10<br>简明指南与访问提醒</h1>
+        <p>如果你刚接触这个数字游戏，或者想更从容地了解它的大致面貌——下面几段话或许能提供一点方向。</p>
+    </div>
+
+    <!-- 核心介绍 -->
+    <div class="intro-card" id="intro">
+        <p><span class="highlight-link">澳洲幸运10</span> 是一种基于开奖结果的数字型娱乐方式，每天多轮开奖，每期从 1 到 10 中随机产生一个号码。它规则清晰、节奏固定，因此吸引了不少人用轻松的心态参与。</p>
+        <p>这个网站 <a href="https://www-aus10.com" style="color: #8b6f51; text-decoration: underline; text-underline-offset: 3px; font-weight: 500;">澳洲幸运10</a> 提供了开奖记录、走势图表和相关参考信息，方便你快速了解近期情况。如果你是第一次打开，建议先花几分钟浏览一下页面结构和数据更新规律，不必急于下结论。</p>
+        <p>无论出于好奇还是其他原因，保持自己的节奏就好。数字本身是中性的，重要的是你如何看待它。</p>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="scenes-grid" id="scenes">
+        <div class="scene-item">
+            <h3>日常查看</h3>
+            <p>打开 <a href="https://www-aus10.com" style="color: #5c554b; text-decoration: underline; text-underline-offset: 2px;">澳洲幸运10</a> 可以快速看到最近几期的开奖结果。走势图用色块区分冷热号，适合习惯用视觉捕捉规律的人。</p>
+        </div>
+        <div class="scene-item">
+            <h3>阶段分析</h3>
+            <p>如果你喜欢整理数据，网站提供的历史列表能帮你回顾过去几十期甚至更久的结果。统计出现次数、间隔频率，都是很常见的用法。</p>
+        </div>
+        <div class="scene-item">
+            <h3>随手参考</h3>
+            <p>不需要注册或登录，直接访问就可以浏览。把页面添加到书签，偶尔点开扫一眼，不费什么精力，也算一种轻量的参与方式。</p>
+        </div>
+    </div>
+
+    <!-- 常见说明 / 引用块 -->
+    <div class="faq-block" id="faq">
+        <h2>一些常见说明</h2>
+        <div class="faq-item">
+            <strong>关于数据更新</strong>
+            <p>开奖结果通常在每次开奖后几分钟内同步至网站。偶尔因网络或技术原因略有延迟，属于正常现象。</p>
+        </div>
+        <div class="faq-item">
+            <strong>走势图怎么看</strong>
+            <p>多数情况下，横轴代表期数或日期，纵轴是开奖号码。颜色深浅或冷暖用于标识号码出现的频次，详细图例在页面底部有说明。</p>
+        </div>
+        <div class="faq-item">
+            <strong>是否需要注册</strong>
+            <p>浏览开奖信息和走势图完全不需要注册或登录。网站没有强制账号体系，直接访问即可。</p>
+        </div>
+    </div>
+
+    <div class="note-box">
+        <span>小提示：</span> 如果页面加载较慢，可以尝试刷新或稍后再试。数据量大的图表可能需要几秒渲染，耐心等待一下就好。
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer">
+        <span>© 2025 · 导航页</span>
+        <span>内容仅供一般性参考</span>
+    </div>
+</div>
+</body>
+</html>
