@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>九游娱乐 · 再访 | 收藏</title>
+  <style>
+    /* reset & base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #f7f5f2;
+      color: #1f2a3a;
+      line-height: 1.7;
+    }
+
+    /* 深色头图 – 故事开场 */
+    .hero {
+      background: linear-gradient(145deg, #0b141f 0%, #191f2b 70%, #202b38 100%);
+      padding: 6rem 2rem 4.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%;
+      height: 1px;
+      background: rgba(245, 190, 70, 0.2);
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: #efece6;
+      margin-bottom: 0.5rem;
+    }
+    .hero .light-line {
+      display: inline-block;
+      width: 70px;
+      height: 1px;
+      background: #c9a96e;
+      margin: 0.6rem auto 1.2rem;
+    }
+    .hero .opener {
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: #cccfd4;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+    .hero .opener strong {
+      color: #f3dfba;
+      font-weight: 400;
+    }
+
+    /* 浅色正文区 */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 3rem 1.8rem 5rem;
+    }
+
+    /* 承接段落 — 再次访问 & 收藏 */
+    .story-section {
+      margin-bottom: 2.8rem;
+    }
+    .story-section p {
+      margin-bottom: 1.4rem;
+      font-size: 1rem;
+      color: #2f3a4a;
+    }
+    .story-section p a {
+      color: #a5551c;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border 0.15s, color 0.15s;
+    }
+    .story-section p a:hover {
+      border-bottom-color: #a5551c;
+      color: #7b3f12;
+    }
+
+    /* 特点列表 — 差异化的卡片网格 */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      margin: 2.5rem 0 3rem;
+    }
+    .feature-card {
+      background: #ffffffec;
+      border: 1px solid #e7e2da;
+      border-radius: 24px;
+      padding: 1.8rem 1.5rem 1.6rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+      backdrop-filter: blur(1px);
+    }
+    .feature-card:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      transform: translateY(-4px);
+    }
+    .feature-card h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #25303e;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+    }
+    .feature-card h3::before {
+      content: '◈';
+      color: #b98447;
+      margin-right: 10px;
+      font-size: 1rem;
+    }
+    .feature-card p {
+      font-size: 0.95rem;
+      color: #3d4b5c;
+      line-height: 1.6;
+    }
+
+    /* 温和的场景描述 */
+    .scene-wrapper {
+      background: #f0ede6;
+      padding: 2rem 1.8rem;
+      border-radius: 28px;
+      margin: 2.2rem 0 2.8rem;
+    }
+    .scene-wrapper h2 {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: #2f3b48;
+      margin-bottom: 1.2rem;
+      border-left: 4px solid #c29e6b;
+      padding-left: 1.2rem;
+    }
+    .scene-wrapper p {
+      margin-bottom: 0.8rem;
+      color: #3d4a57;
+    }
+
+    /* FAQ 摘要 — 简洁且自然 */
+    .faq-mini {
+      background: #ffffff;
+      border: 1px solid #e3ddd1;
+      border-radius: 24px;
+      padding: 1.8rem 2rem;
+      margin: 2.8rem 0 1rem;
+    }
+    .faq-mini h3 {
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: #252f3a;
+      margin-bottom: 0.8rem;
+    }
+    .faq-mini details {
+      margin-top: 0.8rem;
+      border-bottom: 1px dashed #dad2c4;
+      padding-bottom: 0.6rem;
+    }
+    .faq-mini details:last-of-type {
+      border-bottom: none;
+    }
+    .faq-mini summary {
+      cursor: pointer;
+      font-weight: 450;
+      color: #3b4a5c;
+      padding: 0.4rem 0;
+      font-size: 0.98rem;
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+    .faq-mini summary::before {
+      content: '▹';
+      margin-right: 12px;
+      color: #b27d48;
+      font-size: 1rem;
+    }
+    .faq-mini details[open] summary::before {
+      content: '▿';
+    }
+    .faq-mini details p {
+      margin: 0.2rem 0 0.8rem 1.6rem;
+      font-size: 0.93rem;
+      color: #48576a;
+      line-height: 1.5;
+    }
+
+    /* 温和结尾 */
+    .gentle-footer {
+      margin-top: 2rem;
+      padding: 1.8rem 0 0.2rem;
+      border-top: 1px solid #dad3c7;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #4f5d6b;
+    }
+    .gentle-footer p {
+      max-width: 600px;
+      margin: 0 auto 0.6rem;
+    }
+    .gentle-footer .signature {
+      font-style: italic;
+      opacity: 0.7;
+      letter-spacing: 1px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 680px) {
+      .hero { padding: 4rem 1.5rem 3rem; }
+      .hero h1 { font-size: 1.6rem; }
+      .hero .opener { font-size: 1rem; }
+      .feature-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+      .container { padding: 2rem 1.2rem 3rem; }
+      .scene-wrapper { padding: 1.6rem 1.2rem; }
+      .faq-mini { padding: 1.5rem; }
+    }
+    @media (max-width: 450px) {
+      .hero .opener { font-size: 0.95rem; }
+      .feature-card { padding: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头图 – 开场短句 -->
+  <header class="hero">
+    <h1>又见 · 九游</h1>
+    <div class="light-line"></div>
+    <div class="opener">
+      总有一些角落值得<strong>再次停留</strong>，记下它，就像在书里夹一枚旧书签。
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- 承接段落 – 从再次访问和收藏切入 -->
+    <div class="story-section">
+      <p>
+        有时只是随手保存一个链接，下次打开却像推开一扇熟悉的门。灯光、排列、节奏，都还是上次离开时的样子。对我来说，<a href="https://wapm-jiuyou.com">九游娱乐</a>就是这样一个地方——不必刻意想起，但每次回来都感到自在。
+      </p>
+      <p>
+        收藏夹里总有些站点慢慢褪色，但有些却悄悄长成了日常的一部分。谈不上多隆重，只是某个午后点开，发现内容依然对味，版式也干净，于是顺手把它留在了浏览器书签栏的显眼位置。
+      </p>
+    </div>
+
+    <!-- 特点列表（卡片） -->
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>保持呼吸的节奏</h3>
+        <p>页面不拥挤，信息区块之间留出足够的余白，像一次舒长的换气。读起来不累，滑动时视线自然游走。</p>
+      </div>
+      <div class="feature-card">
+        <h3>不追赶，不聒噪</h3>
+        <p>没有弹窗或自动播放的干扰。内容呈现克制，知道自己想说什么，也尊重你浏览的节奏。</p>
+      </div>
+      <div class="feature-card">
+        <h3>融入生活的色调</h3>
+        <p>低饱和的底色、温润的强调色，不刺眼也不寡淡。即使深夜打开，也不会感到视觉负担。</p>
+      </div>
+      <div class="feature-card">
+        <h3>熟悉的入口感</h3>
+        <p>导航清晰，关键路径直接。每次回来不需要重新适应，就像走到街角那家常去的店，门把手的触感都认得。</p>
+      </div>
+    </div>
+
+    <!-- 场景段落 — 温和叙述 -->
+    <div class="scene-wrapper">
+      <h2>某个平常的晚上</h2>
+      <p>关掉社交软件里喧闹的碎片，点开书签栏里那个不起眼的文件夹。光标划过<a href="https://wapm-jiuyou.com">九游娱乐</a>时，我停了一下——其实并不为了寻找什么特别的内容，只是想待在一个不急着赶我走的地方。</p>
+      <p>页面加载很快，没有预载广告的等待。随便翻了翻，看到一些熟悉的功能板块，也发现角落多了一则新的说明。这种细小的更新让人安心：有人在默默打理，又没有大肆张扬。</p>
+    </div>
+
+    <!-- FAQ 摘要 — 自然延伸 -->
+    <div class="faq-mini">
+      <h3>偶尔会想起的几件事</h3>
+      <details>
+        <summary>为什么我总把它放在书签的同一位置？</summary>
+        <p>可能因为每次打开都无需重新学习布局。大脑偏爱稳定的交互模式，尤其当一天已经足够忙碌。</p>
+      </details>
+      <details>
+        <summary>收藏的站点那么多，为什么愿意持续关注它？</summary>
+        <p>大概因为它不试图用浮夸的措辞挽留你，只是安静提供内容。这种不施压的陪伴，反而让人更愿意回来。</p>
+      </details>
+      <details>
+        <summary>它和其他同类站有什么不同？</summary>
+        <p>很难说清某一点，但整体氛围更松弛。没有紧迫感，也没有“再不xx就错过”的催促。像是老朋友写的便签，而不是喇叭里的广播。</p>
+      </details>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="gentle-footer">
+      <p>网络很大，值得反复拜访的地方不多。<br>偶尔想起时，不妨回来坐坐。</p>
+      <p class="signature">—— 记于一个不想关掉浏览器标签页的夜晚</p>
+    </div>
+
+  </main>
+
+</body>
+</html>
