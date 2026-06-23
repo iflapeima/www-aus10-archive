@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>九游娱乐 · 资料索引页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(145deg, #faeee0 0%, #f7d9c2 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1.2rem 3rem;
+    }
+
+    .page-wrapper {
+      max-width: 920px;
+      width: 100%;
+    }
+
+    /* 卡片基座 */
+    .card {
+      background: #fffffffa;
+      backdrop-filter: blur(2px);
+      border-radius: 36px;
+      padding: 2.4rem 2.8rem;
+      box-shadow: 0 12px 30px rgba(170, 100, 50, 0.10), 0 4px 10px rgba(0,0,0,0.02);
+      margin-bottom: 2.2rem;
+      transition: box-shadow 0.2s;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 1.8rem 1.4rem;
+        border-radius: 28px;
+      }
+    }
+
+    /* hero 特殊处理 */
+    .hero-card {
+      background: linear-gradient(125deg, #fff7f0 0%, #ffffff 80%);
+      padding-top: 2.8rem;
+      padding-bottom: 2.8rem;
+      border: 1px solid rgba(255, 215, 180, 0.3);
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #542e1a;
+      margin-bottom: 0.6rem;
+      line-height: 1.2;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: #7f553b;
+      max-width: 36em;
+      line-height: 1.6;
+      margin-top: 1rem;
+      border-left: 4px solid #e4b594;
+      padding-left: 1.2rem;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 450;
+      color: #4a2c1b;
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::before {
+      content: "·";
+      font-size: 2.2rem;
+      color: #c38963;
+      line-height: 0;
+    }
+
+    /* 优势网格 */
+    .grid-adv {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem 1.2rem;
+    }
+
+    .adv-item {
+      background: #fbf3ec;
+      border-radius: 20px;
+      padding: 1.2rem 1rem;
+      transition: background 0.15s;
+    }
+
+    .adv-item strong {
+      display: block;
+      font-weight: 550;
+      color: #5b3623;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .adv-item span {
+      font-size: 0.95rem;
+      color: #6a4a36;
+      line-height: 1.5;
+    }
+
+    /* 说明区段落 */
+    .desc-paragraph {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #3c2a1e;
+      margin-bottom: 1rem;
+    }
+
+    .desc-paragraph a {
+      color: #9a5f3b;
+      text-decoration: none;
+      font-weight: 470;
+      border-bottom: 1.5px solid #e4b594;
+      transition: border 0.1s, color 0.1s;
+    }
+
+    .desc-paragraph a:hover {
+      color: #633e26;
+      border-bottom-color: #b98260;
+    }
+
+    .inline-link {
+      background: #f2e1d3;
+      border-radius: 30px;
+      padding: 0.1rem 0.7rem 0.15rem;
+      white-space: nowrap;
+      font-weight: 460;
+      color: #542e1a;
+      border: 0.5px solid #e7cabb;
+      transition: background 0.15s;
+    }
+
+    .inline-link:hover {
+      background: #e4cdbb;
+    }
+
+    /* FAQ 摘要 */
+    .faq-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #edd9cb;
+      padding-bottom: 0.8rem;
+    }
+
+    .faq-q {
+      font-weight: 510;
+      color: #4a2c1b;
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-a {
+      color: #5a3f2e;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .faq-a a {
+      color: #8b5b3d;
+      text-decoration: none;
+      border-bottom: 1px dotted #c9a387;
+    }
+
+    /* 底部链接卡片 */
+    .footer-card {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.2rem;
+      background: #f7ede5;
+      border: 1px solid #efddcf;
+    }
+
+    .footer-note {
+      font-size: 0.9rem;
+      color: #6b4f3b;
+    }
+
+    .footer-link-group {
+      display: flex;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-link-group a {
+      color: #6d4630;
+      text-decoration: none;
+      font-weight: 460;
+      border-bottom: 1px solid transparent;
+      transition: border 0.1s;
+    }
+
+    .footer-link-group a:hover {
+      border-bottom-color: #b98260;
+    }
+
+    /* 响应式调整 */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .hero-sub {
+        font-size: 1rem;
+      }
+      .card {
+        padding: 1.5rem 1.2rem;
+      }
+      .footer-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ecd8ca;
+      margin: 0.6rem 0 1.2rem;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- hero 区 -->
+  <div class="card hero-card">
+    <h1>九游娱乐 · 资料整理与信息索引</h1>
+    <div class="hero-sub">
+      从一个简单的信息整理角度出发，将平台结构、常见问题与使用背景进行归类。<br>
+      这里只做客观的条目梳理，不评价、不引导，仅提供索引参考。
+    </div>
+  </div>
+
+  <!-- 优势区：信息索引特点 -->
+  <div class="card">
+    <div class="section-title">索引结构特点</div>
+    <div class="grid-adv">
+      <div class="adv-item">
+        <strong>归类清晰</strong>
+        <span>按模块、功能、常见路径拆分，降低检索成本。</span>
+      </div>
+      <div class="adv-item">
+        <strong>术语对照</strong>
+        <span>同一概念的不同表述一并列出，方便交叉参考。</span>
+      </div>
+      <div class="adv-item">
+        <strong>场景标签</strong>
+        <span>为每个条目附加使用场景说明，提高匹配效率。</span>
+      </div>
+      <div class="adv-item">
+        <strong>链接摘要</strong>
+        <span>关键位置附直达参考，但保持克制。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 说明区：从资料整理角度展开 -->
+  <div class="card">
+    <div class="section-title">说明 · 索引逻辑</div>
+    <p class="desc-paragraph">
+      在整理与<a href="https://wapcn-jiuyou.com">九游娱乐</a>相关的公开资料时，我们发现其内容结构可以分为几个主要板块：基础信息、功能区域、常见路径以及辅助说明。每个板块内部又有不同的子层级，比如基础信息包含名称、定位、访问方式等。将这些条目按层级平铺后，再以标签形式标注适用场景，可以大幅减少重复翻阅的时间。
+    </p>
+    <p class="desc-paragraph">
+      以“访问方式”为例，移动端与桌面端在界面排布上存在细微差异，但核心逻辑一致。在索引中我们统一使用「通用条目」+「平台备注」的方式记录，让使用者能迅速定位差异点。类似的整理思路也适用于内容分类、通知摘要等模块。
+    </p>
+    <p class="desc-paragraph">
+      另外，很多用户会关心“某个功能在哪里找”这类问题。我们尝试将高频问题映射到对应的索引条目，并在FAQ区提炼了几个典型场景。若需要查看更多细节，可直接参考<a href="https://wapcn-jiuyou.com">九游娱乐</a>的原始结构。
+    </p>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="card">
+    <div class="section-title">FAQ 摘要（常见索引问题）</div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q">索引中如何区分主模块与子模块？</div>
+        <div class="faq-a">主模块用加粗标题（h3层级），子模块在下方缩进并用圆点引导。部分跨模块条目会同时出现在两个分类下，并做交叉引用标记。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">条目附带的标签有什么含义？</div>
+        <div class="faq-a">每个标签代表该条目适用的典型场景，例如「移动端」「新用户」「设置页」等。标签越多表示条目适用面越广，但具体仍以实际内容为准。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">如果找不到想要的索引条目怎么办？</div>
+        <div class="faq-a">可以尝试使用更宽泛的关键词重新定位，或查看相邻分类下的条目。另外，<a href="https://wapcn-jiuyou.com">九游娱乐</a>本身的导航也提供了一级分类参考，可作为补充。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">索引会定期更新吗？</div>
+        <div class="faq-a">目前基于一个相对稳定的结构版本整理，后续若出现显著变动会做增量调整。每次更新会在条目备注中注明日期与改动范围。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 底部链接卡片 -->
+  <div class="card footer-card">
+    <div class="footer-note">
+      基于公开信息整理 · 仅提供索引参考
+    </div>
+    <div class="footer-link-group">
+      <a href="https://wapcn-jiuyou.com">九游娱乐</a>
+      <a href="#">结构总览</a>
+      <a href="#">更新记录</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
